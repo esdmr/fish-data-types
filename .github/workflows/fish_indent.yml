@@ -1,0 +1,39 @@
+name: fish_indent
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**.fish"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "**.fish"
+
+defaults:
+  run:
+    shell: fish {0}
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install fish
+        uses: fish-actions/install-fish@v1.1.0
+
+      - name: Checkout branch
+        uses: actions/checkout@v2
+
+      - name: Lint fish scripts
+        run: |-
+          set -l failed_files (fish_indent -c **.fish 2>&1)
+          set -l fish_indent_status $status
+
+          for filename in $failed_files
+            echo "::error file=$filename,line=1,col=1::fish_indent failed in $filename"
+          end
+
+          exit $fish_indent_status

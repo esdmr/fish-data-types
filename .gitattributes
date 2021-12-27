@@ -1,0 +1,19 @@
+# Auto detect line endings and text/binary mode for files
+*                   text=auto
+
+# Source code
+*.sh                text eol=lf
+*.fish              text eol=lf
+
+# Documentation
+*.md                text
+license             text
+LICENSE             text
+*readme*            text
+*README*            text
+
+# Configuration
+.editorconfig       text
+.gitattributes      text
+.gitconfig          text
+.gitignore          text
