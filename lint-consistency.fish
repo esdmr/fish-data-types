@@ -9,7 +9,7 @@ for filename in functions/*.fish
 
         case 'function *'
             #Invalid name.
-            echo "::error file=$filename,line=1,col=10::Function in file '$filename' is not consistent with the file name"
+            echo "::error file=$filename,line=1,col=10::Function in file '$filename' is not consistent with the file name."
             set failures (math $failures + 1)
 
         case '*'
