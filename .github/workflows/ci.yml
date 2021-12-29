@@ -1,4 +1,4 @@
-name: fish_indent
+name: CI
 
 on:
   push:
@@ -14,10 +14,10 @@ on:
 
 defaults:
   run:
-    shell: fish {0}
+    shell: dash {0}
 
 jobs:
-  lint:
+  ci:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,12 +28,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Lint fish scripts
-        run: |-
-          set -l failed_files (fish_indent -c **.fish 2>&1)
-          set -l fish_indent_status $status
+        run: fish lint.fish
 
-          for filename in $failed_files
-            echo "::error file=$filename,line=1,col=1::fish_indent failed in $filename"
-          end
-
-          exit $fish_indent_status
+      - name: Lint consistency
+        run: fish lint-consistency.fish
