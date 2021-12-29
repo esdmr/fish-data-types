@@ -11,7 +11,7 @@ function object_alloc -d 'Allocates a new object and returns a reference to it'
     end
 
     __assert_obj_free $index || return
-    set -g (__object_var "$index")
+    set -g (__object_var "$index") || return
 
     set -q argv[1] || echo $index
 end
