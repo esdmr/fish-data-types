@@ -16,6 +16,7 @@ function object_merge -a to from
 
     set -ga $ref_to $$ref_from
     set -ge $ref_from
+    __object_sort "$from"
 
     __object_maybe_run "$to" postmove "$from" merge || return
 end
