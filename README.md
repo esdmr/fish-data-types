@@ -2,6 +2,11 @@
 
 Warning: Currently, it is very experimental.
 
+## Requirements
+
+- `tail` with `( -n | --lines ) +<number>` support.
+- `sort` with `( -u | --unique )` support.
+
 ## Installing
 
 ```sh

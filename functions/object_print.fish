@@ -4,5 +4,5 @@ function object_print -d 'Debug prints an object' -a index
 
     set -l ref (__object_var "$index") || return
     set -l escaped (string escape --style regex -- $ref)
-    set | grep -e "^$escaped"
+    set | string match -er "^$escaped"
 end
