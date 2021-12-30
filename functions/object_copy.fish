@@ -14,7 +14,7 @@ function object_copy -a to from
         set -g $key_to $$key_from
     end
 
-    set -g $ref_to $ref_from
+    set -g $ref_to $$ref_from
 
     __object_maybe_run "$to" postcopy "$from" copy || return
 end

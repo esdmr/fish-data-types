@@ -14,7 +14,7 @@ function object_assign -a to from
         set -g $key_to $$key_from
     end
 
-    set -ga $ref_to $ref_from
+    set -ga $ref_to $$ref_from
     __object_sort "$from"
 
     __object_maybe_run "$to" postcopy "$from" assign || return
