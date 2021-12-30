@@ -1,4 +1,4 @@
-function __assert_fn_argv_count_min -a minimum given
+function __fdt_assert_fn_argv_count_min -a minimum given
     test "$minimum" -le "$given" && return
 
     echo "Incorrect number of arguments given. Expected a minimum of $minimum, Got $given." >&2

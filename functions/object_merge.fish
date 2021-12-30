@@ -1,7 +1,7 @@
 function object_merge -a to from
-    __assert_fn_argv_count 2 (count $argv) || return
-    __assert_obj_exists "$from" || return
-    __assert_obj_exists "$to" || return
+    __fdt_assert_fn_argv_count 2 (count $argv) || return
+    __fdt_assert_obj_exists "$from" || return
+    __fdt_assert_obj_exists "$to" || return
 
     __object_maybe_run "$from" premove "$to" merge || return
 
@@ -11,7 +11,7 @@ function object_merge -a to from
     for key in $$ref_from
         set -l key_from (__object_var "$from" "$key") || continue
         set -l key_to (__object_var "$to" "$key") || continue
-        __set_global_rename $key_to $key_from
+        __fdt_set_global_rename $key_to $key_from
     end
 
     set -ga $ref_to $$ref_from

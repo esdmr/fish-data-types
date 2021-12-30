@@ -1,4 +1,4 @@
-function __assert_fn_argv_count_max -a maximum given
+function __fdt_assert_fn_argv_count_max -a maximum given
     test "$maximum" -ge "$given" && return
 
     echo "Incorrect number of arguments given. Expected a maximum of $maximum, Got $given." >&2

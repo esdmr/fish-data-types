@@ -1,4 +1,4 @@
-function __assert_fn_argv_count -a expected given
+function __fdt_assert_fn_argv_count -a expected given
     test "$expected" -eq "$given" && return
 
     echo "Incorrect number of arguments given. Expected $expected, Got $given." >&2

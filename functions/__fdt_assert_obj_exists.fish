@@ -1,5 +1,5 @@
-function __assert_obj_exists -a index
-    __assert_fn_argv_count 1 (count $argv) || return
+function __fdt_assert_obj_exists -a index
+    __fdt_assert_fn_argv_count 1 (count $argv) || return
     __object_exists "$index" && return
 
     echo "Expected object $index to exist." >&2

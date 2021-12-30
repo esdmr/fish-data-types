@@ -1,7 +1,7 @@
 function object_copy -a to from
-    __assert_fn_argv_count 2 (count $argv) || return
-    __assert_obj_exists "$from" || return
-    __assert_obj_free "$to" || return
+    __fdt_assert_fn_argv_count 2 (count $argv) || return
+    __fdt_assert_obj_exists "$from" || return
+    __fdt_assert_obj_free "$to" || return
 
     __object_maybe_run "$from" precopy "$to" copy || return
 

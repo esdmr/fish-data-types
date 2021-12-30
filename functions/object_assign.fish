@@ -1,7 +1,7 @@
 function object_assign -a to from
-    __assert_fn_argv_count 2 (count $argv) || return
-    __assert_obj_exists "$from" || return
-    __assert_obj_exists "$to" || return
+    __fdt_assert_fn_argv_count 2 (count $argv) || return
+    __fdt_assert_obj_exists "$from" || return
+    __fdt_assert_obj_exists "$to" || return
 
     __object_maybe_run "$from" precopy "$to" assign || return
 
