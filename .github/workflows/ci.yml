@@ -29,6 +29,3 @@ jobs:
 
       - name: Lint fish scripts
         run: fish lint.fish
-
-      - name: Lint consistency
-        run: fish lint-consistency.fish
