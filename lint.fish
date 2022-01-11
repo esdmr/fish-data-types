@@ -14,12 +14,12 @@ for filename in functions/*.fish
             # Valid name. Do nothing.
 
         case 'function *'
-            #Invalid name.
+            # Invalid name.
             echo "::error file=$filename,line=1,col=10::Function in file '$filename' is not consistent with the file name."
             set failures (math $failures + 1)
 
         case '*'
-            #Invalid file.
+            # Invalid file.
             echo "::error file=$filename,line=1,col=10::File '$filename' must have one function declaration, since it is under 'functions' directory."
             set failures (math $failures + 1)
     end
